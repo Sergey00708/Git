@@ -3,11 +3,11 @@
 $name = $_POST['name'];
 $pass = $_POST['password'];
 
-if ($name == 'Сергей') {
+if ($name == 'Сергей' or $name == 'Вадим') {
     echo "Ваше имя: $name </br>";
     echo "Ваш пароль: $pass";
 } else {
-    echo 'Вы не Сергей';
+    echo 'Вы не Сергей и не Вадим';
 }
 echo "</br>";
 
