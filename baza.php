@@ -1,5 +1,7 @@
 <?php
 
+require_once 'dbconnect.php';
+
 $name = $_POST['name'];
 $pass = $_POST['password'];
 
@@ -30,6 +32,7 @@ if (isset($_POST["bot"])) {
 
 <body>
     <form action="registration.html"><button type="submit">Назад</button></form>
+    <a href="registration.html">Назад</a>
 </body>
 
 </html>
