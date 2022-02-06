@@ -1,9 +1,14 @@
 <?php
 
-require_once 'dbconnect.php';
+require_once'dbconnect.php';
 
 $name = $_POST['name'];
 $pass = $_POST['password'];
+
+
+$sql = 'INSERT INTO people(name, password) VALUES(:name, :password)';
+$query = $pdo->prepare($sql);
+$query->execute(['name' => $name, 'password' => $pass]);
 
 if ($name == 'Сергей' or $name == 'Вадим') {
     echo "Ваше имя: $name </br>";
@@ -32,7 +37,6 @@ if (isset($_POST["bot"])) {
 
 <body>
     <form action="registration.html"><button type="submit">Назад</button></form>
-    <a href="registration.html">Назад</a>
 </body>
 
 </html>
