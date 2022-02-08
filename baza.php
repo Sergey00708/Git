@@ -1,17 +1,29 @@
 <?php
 
-require_once 'dbconnect.php';
+require_once'dbconnect.php';
 
 $name = $_POST['name'];
 $pass = $_POST['password'];
 
-if ($name == 'Сергей' or $name == 'Вадим') {
+
+$sql = 'INSERT INTO people(name, password) VALUES(:name, :password)';
+$query = $pdo->prepare($sql);
+$query->execute(['name' => $name, 'password' => $pass]);
+
+if (isset($_POST['name'])) {
     echo "Ваше имя: $name </br>";
+}if (isset($_POST['password'])) {
     echo "Ваш пароль: $pass";
-} else {
-    echo 'Вы не Сергей и не Вадим';
+}else{
+    echo 'не введены данные';
 }
 echo "</br>";
+
+/*$query1 = $pdo->query('SELECT * FROM `people`');
+while($row = $query1->fetch(PDO::FETCH_OBJ)){
+    echo "Ваше имя: $row->name </br>";
+    echo "Ваш пароль: $row->password </br>";
+}*/
 
 if (isset($_POST["bot"])) {
     echo 'Вы не бот';
@@ -32,7 +44,6 @@ if (isset($_POST["bot"])) {
 
 <body>
     <form action="registration.html"><button type="submit">Назад</button></form>
-    <a href="registration.html">Назад</a>
 </body>
 
 </html>
