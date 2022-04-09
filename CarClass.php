@@ -28,7 +28,12 @@ class Car implements MovableInterface{
 
     public function up($unit)
     {
-        return 'Машина марки' . $this->brend . 'разогналась до' . $this->unit = $unit;
+        if ($unit <= $this->maxSpeed) {
+            return 'Машина марки' . $this->brend . 'разогналась до' . $this->unit = $unit;
+        }else{
+            return 'С такой скоростью эта машина не может ехать';
+        }
+        
     }
     
     public function down(int $unit)

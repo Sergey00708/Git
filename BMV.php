@@ -5,4 +5,4 @@ include 'CarClass.php';
 $BMV = new Car(300,'BMV');
 
 
-echo $BMV->up(200);
+echo $BMV->up(350);
